@@ -1,0 +1,17 @@
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+
+# Logs y dependencias (por si añades herramientas)
+*.log
+node_modules/
+
+# Fuentes de diseño y exportaciones sin comprimir
+*.fig
+figma-export/
+originals/
