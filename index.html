@@ -65,7 +65,7 @@
     <!-- Albums -->
     <section id="albums">
       <h2>Albums</h2>
-      <p>Open the latest album on Spotify, or browse the rest of the discography below.</p>
+      <p class="intro">Open the latest album on Spotify, or browse the rest of the discography below.</p>
 
       <!-- Álbum principal -->
       <article class="main-album">
@@ -73,7 +73,7 @@
         <div>
           <p class="label">Latest album</p>
           <h3>The Mountain</h3>
-          <p>2026 · 15 songs · 66 min</p>
+          <p class="meta">2026 · 15 songs · 66 min</p>
           <p>Gorillaz’s ninth studio album, released on 27 February 2026 on their own label, KONG. Built around grief, death and the afterlife, it was recorded in India after Damon Albarn and Jamie Hewlett lost their parents within days of each other.</p>
           <p>Western pop and electronics meet sitar, tabla and bansuri. Guests include Bizarrap, Trueno, Johnny Marr, Sparks, IDLES and Anoushka Shankar, plus posthumous appearances by Dennis Hopper and Bobby Womack.</p>
           <p>Debuted at number one on the UK albums chart.</p>
@@ -82,7 +82,7 @@
         </div>
       </article>
 
-      <!-- Carrusel sin JS: radios ocultos + 3 copias de la lista -->
+      <!-- Carrusel infinito sin JS: los radios eligen el álbum y CSS rota el orden de las portadas -->
       <h3>More albums</h3>
       <div class="carousel">
         <input type="radio" name="album" id="a1" aria-label="Gorillaz (2001)" checked>
@@ -95,67 +95,47 @@
         <input type="radio" name="album" id="a8" aria-label="Cracker Island (2023)">
 
         <ul class="track">
-          <!-- Copia izquierda -->
-          <li aria-hidden="true"><label for="a1"><img src="assets/gorillaz.jpg" alt=""></label></li>
-          <li aria-hidden="true"><label for="a2"><img src="assets/demon-days.jpg" alt=""></label></li>
-          <li aria-hidden="true"><label for="a3"><img src="assets/plastic-beach.jpg" alt=""></label></li>
-          <li aria-hidden="true"><label for="a4"><img src="assets/the-fall.jpg" alt=""></label></li>
-          <li aria-hidden="true"><label for="a5"><img src="assets/humanz.jpg" alt=""></label></li>
-          <li aria-hidden="true"><label for="a6"><img src="assets/the-now-now.jpg" alt=""></label></li>
-          <li aria-hidden="true"><label for="a7"><img src="assets/song-machine.jpg" alt=""></label></li>
-          <li aria-hidden="true"><label for="a8"><img src="assets/cracker-island.jpg" alt=""></label></li>
-          <!-- Copia central -->
-          <li><label for="a1"><img src="assets/gorillaz.jpg" alt="Cover of Gorillaz (2001)"></label></li>
-          <li><label for="a2"><img src="assets/demon-days.jpg" alt="Cover of Demon Days (2005)"></label></li>
-          <li><label for="a3"><img src="assets/plastic-beach.jpg" alt="Cover of Plastic Beach (2010)"></label></li>
-          <li><label for="a4"><img src="assets/the-fall.jpg" alt="Cover of The Fall (2011)"></label></li>
-          <li><label for="a5"><img src="assets/humanz.jpg" alt="Cover of Humanz (2017)"></label></li>
-          <li><label for="a6"><img src="assets/the-now-now.jpg" alt="Cover of The Now Now (2018)"></label></li>
-          <li><label for="a7"><img src="assets/song-machine.jpg" alt="Cover of Song Machine, Season One (2020)"></label></li>
-          <li><label for="a8"><img src="assets/cracker-island.jpg" alt="Cover of Cracker Island (2023)"></label></li>
-          <!-- Copia derecha -->
-          <li aria-hidden="true"><label for="a1"><img src="assets/gorillaz.jpg" alt=""></label></li>
-          <li aria-hidden="true"><label for="a2"><img src="assets/demon-days.jpg" alt=""></label></li>
-          <li aria-hidden="true"><label for="a3"><img src="assets/plastic-beach.jpg" alt=""></label></li>
-          <li aria-hidden="true"><label for="a4"><img src="assets/the-fall.jpg" alt=""></label></li>
-          <li aria-hidden="true"><label for="a5"><img src="assets/humanz.jpg" alt=""></label></li>
-          <li aria-hidden="true"><label for="a6"><img src="assets/the-now-now.jpg" alt=""></label></li>
-          <li aria-hidden="true"><label for="a7"><img src="assets/song-machine.jpg" alt=""></label></li>
-          <li aria-hidden="true"><label for="a8"><img src="assets/cracker-island.jpg" alt=""></label></li>
+          <li style="--i:0"><label for="a1"><img src="assets/gorillaz.jpg" alt="Cover of Gorillaz (2001)"></label></li>
+          <li style="--i:1"><label for="a2"><img src="assets/demon-days.jpg" alt="Cover of Demon Days (2005)"></label></li>
+          <li style="--i:2"><label for="a3"><img src="assets/plastic-beach.jpg" alt="Cover of Plastic Beach (2010)"></label></li>
+          <li style="--i:3"><label for="a4"><img src="assets/the-fall.jpg" alt="Cover of The Fall (2011)"></label></li>
+          <li style="--i:4"><label for="a5"><img src="assets/humanz.jpg" alt="Cover of Humanz (2017)"></label></li>
+          <li style="--i:5"><label for="a6"><img src="assets/the-now-now.jpg" alt="Cover of The Now Now (2018)"></label></li>
+          <li style="--i:6"><label for="a7"><img src="assets/song-machine.jpg" alt="Cover of Song Machine, Season One (2020)"></label></li>
+          <li style="--i:7"><label for="a8"><img src="assets/cracker-island.jpg" alt="Cover of Cracker Island (2023)"></label></li>
         </ul>
 
-        <!-- Info del álbum activo -->
         <div class="infos">
           <div class="info">
-            <div><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Gorillaz%202001">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Gorillaz%202001">Open on Spotify</a></div>
+            <div class="info-buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Gorillaz%202001">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Gorillaz%202001">Open on Spotify</a></div>
             <div class="info-nav"><label for="a8" aria-hidden="true">←</label><p><strong>Gorillaz</strong><span>2001</span></p><label for="a2" aria-hidden="true">→</label></div>
           </div>
           <div class="info">
-            <div><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Demon%20Days">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Demon%20Days">Open on Spotify</a></div>
+            <div class="info-buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Demon%20Days">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Demon%20Days">Open on Spotify</a></div>
             <div class="info-nav"><label for="a1" aria-hidden="true">←</label><p><strong>Demon Days</strong><span>2005</span></p><label for="a3" aria-hidden="true">→</label></div>
           </div>
           <div class="info">
-            <div><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Plastic%20Beach">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Plastic%20Beach">Open on Spotify</a></div>
+            <div class="info-buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Plastic%20Beach">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Plastic%20Beach">Open on Spotify</a></div>
             <div class="info-nav"><label for="a2" aria-hidden="true">←</label><p><strong>Plastic Beach</strong><span>2010</span></p><label for="a4" aria-hidden="true">→</label></div>
           </div>
           <div class="info">
-            <div><a class="btn" href="https://open.spotify.com/search/Gorillaz%20The%20Fall">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20The%20Fall">Open on Spotify</a></div>
+            <div class="info-buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20The%20Fall">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20The%20Fall">Open on Spotify</a></div>
             <div class="info-nav"><label for="a3" aria-hidden="true">←</label><p><strong>The Fall</strong><span>2011</span></p><label for="a5" aria-hidden="true">→</label></div>
           </div>
           <div class="info">
-            <div><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Humanz">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Humanz">Open on Spotify</a></div>
+            <div class="info-buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Humanz">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Humanz">Open on Spotify</a></div>
             <div class="info-nav"><label for="a4" aria-hidden="true">←</label><p><strong>Humanz</strong><span>2017</span></p><label for="a6" aria-hidden="true">→</label></div>
           </div>
           <div class="info">
-            <div><a class="btn" href="https://open.spotify.com/search/Gorillaz%20The%20Now%20Now">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20The%20Now%20Now">Open on Spotify</a></div>
+            <div class="info-buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20The%20Now%20Now">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20The%20Now%20Now">Open on Spotify</a></div>
             <div class="info-nav"><label for="a5" aria-hidden="true">←</label><p><strong>The Now Now</strong><span>2018</span></p><label for="a7" aria-hidden="true">→</label></div>
           </div>
           <div class="info">
-            <div><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Song%20Machine%20Season%20One">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Song%20Machine%20Season%20One">Open on Spotify</a></div>
+            <div class="info-buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Song%20Machine%20Season%20One">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Song%20Machine%20Season%20One">Open on Spotify</a></div>
             <div class="info-nav"><label for="a6" aria-hidden="true">←</label><p><strong>Song Machine</strong><span>2020</span></p><label for="a8" aria-hidden="true">→</label></div>
           </div>
           <div class="info">
-            <div><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Cracker%20Island">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Cracker%20Island">Open on Spotify</a></div>
+            <div class="info-buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Cracker%20Island">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Cracker%20Island">Open on Spotify</a></div>
             <div class="info-nav"><label for="a7" aria-hidden="true">←</label><p><strong>Cracker Island</strong><span>2023</span></p><label for="a1" aria-hidden="true">→</label></div>
           </div>
         </div>
@@ -165,10 +145,11 @@
     <!-- Watch -->
     <section class="watch">
       <h2>Watch</h2>
-      <figure>
-        <iframe src="https://www.youtube.com/embed/HyHNuVaZJ-k" title="Gorillaz – Feel Good Inc. (Official Video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>        <figcaption>Feel Good Inc. (Official Video)</figcaption>
+      <figure class="video-large">
+        <iframe src="https://www.youtube.com/embed/HyHNuVaZJ-k" title="Gorillaz – Feel Good Inc. (Official Video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <figcaption>Feel Good Inc. (Official Video)</figcaption>
       </figure>
-      <div>
+      <div class="video-side">
         <figure>
           <iframe src="https://www.youtube.com/embed/1V_xRb0x9aw" title="Gorillaz – Clint Eastwood (Official Video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           <figcaption>Clint Eastwood (Official Video)</figcaption>
@@ -182,48 +163,47 @@
     <!-- On Tour -->
     <section id="on-tour">
       <h2>On Tour</h2>
-      <p>Catch Gorillaz live. Find your date and grab your tickets.</p>
-      <div>
+      <p class="intro">Catch Gorillaz live. Find your date and grab your tickets.</p>
+      <div class="tour-layout">
         <img src="assets/tour-poster.png" alt="Poster of The Mountain Tour, summer 2026">
         <ul class="dates">
           <li>
             <span>Oct 28, 2026</span> <strong>Oakland, CA</strong> <span>Oakland Arena</span>
             <a class="btn btn-alt" href="https://www.gorillaz.com/tour" aria-label="Tickets for Oakland, Oct 28">Tickets</a>
-            <a href="https://maps.google.com/maps?q=Oakland+Arena+Oakland+CA&amp;output=embed" target="tour-map" aria-label="View venue: Oakland Arena">View venue</a>
+            <a class="venue" href="https://maps.google.com/maps?q=Oakland+Arena+Oakland+CA&amp;output=embed" target="tour-map" aria-label="View venue: Oakland Arena">View venue</a>
           </li>
           <li>
             <span>Oct 30, 2026</span> <strong>Portland, OR</strong> <span>Moda Center</span>
             <a class="btn btn-alt" href="https://www.gorillaz.com/tour" aria-label="Tickets for Portland, Oct 30">Tickets</a>
-            <a href="https://maps.google.com/maps?q=Moda+Center+Portland+OR&amp;output=embed" target="tour-map" aria-label="View venue: Moda Center">View venue</a>
+            <a class="venue" href="https://maps.google.com/maps?q=Moda+Center+Portland+OR&amp;output=embed" target="tour-map" aria-label="View venue: Moda Center">View venue</a>
           </li>
           <li>
             <span>Oct 31, 2026</span> <strong>Seattle, WA</strong> <span>Climate Pledge Arena</span>
             <a class="btn btn-alt" href="https://www.gorillaz.com/tour" aria-label="Tickets for Seattle, Oct 31">Tickets</a>
-            <a href="https://maps.google.com/maps?q=Climate+Pledge+Arena+Seattle+WA&amp;output=embed" target="tour-map" aria-label="View venue: Climate Pledge Arena">View venue</a>
+            <a class="venue" href="https://maps.google.com/maps?q=Climate+Pledge+Arena+Seattle+WA&amp;output=embed" target="tour-map" aria-label="View venue: Climate Pledge Arena">View venue</a>
           </li>
           <li>
             <span>Nov 14, 2026</span> <strong>Alajuela, Costa Rica</strong> <span>Parque Viva</span>
             <a class="btn btn-alt" href="https://www.gorillaz.com/tour" aria-label="Tickets for Alajuela, Nov 14">Tickets</a>
-            <a href="https://maps.google.com/maps?q=Parque+Viva+Alajuela+Costa+Rica&amp;output=embed" target="tour-map" aria-label="View venue: Parque Viva">View venue</a>
+            <a class="venue" href="https://maps.google.com/maps?q=Parque+Viva+Alajuela+Costa+Rica&amp;output=embed" target="tour-map" aria-label="View venue: Parque Viva">View venue</a>
           </li>
           <li>
             <span>Nov 17, 2026</span> <strong>Bogotá, Colombia</strong> <span>Coliseo Medplus</span>
             <a class="btn btn-alt" href="https://www.gorillaz.com/tour" aria-label="Tickets for Bogotá, Nov 17">Tickets</a>
-            <a href="https://maps.google.com/maps?q=Coliseo+Medplus+Bogota+Colombia&amp;output=embed" target="tour-map" aria-label="View venue: Coliseo Medplus">View venue</a>
+            <a class="venue" href="https://maps.google.com/maps?q=Coliseo+Medplus+Bogota+Colombia&amp;output=embed" target="tour-map" aria-label="View venue: Coliseo Medplus">View venue</a>
           </li>
         </ul>
       </div>
-      <h3>TOUR map</h3>
-      <iframe name="tour-map" title="Map of the selected venue" src="https://maps.google.com/maps?q=Oakland+Arena+Oakland+CA&amp;output=embed"></iframe>
+      <h3>Venue map</h3>
+      <iframe class="tour-map" name="tour-map" title="Map of the selected venue" src="https://maps.google.com/maps?q=Oakland+Arena+Oakland+CA&amp;output=embed"></iframe>
     </section>
 
     <!-- Contact -->
     <section id="contact">
       <h2>Contact</h2>
-      <p>Questions, press or bookings? Send us a message, or pick up some merch.</p>
-      <div>
+      <p class="intro">Questions, press or bookings? Send us a message, or pick up some merch.</p>
+      <div class="contact-layout">
         <form action="#" method="post">
-          <p>All fields are required.</p>
           <fieldset>
             <legend>Your details</legend>
             <p><label for="name">Name</label><input id="name" name="name" placeholder="Your name" autocomplete="name" required></p>
@@ -257,7 +237,7 @@
       <p>The Mountain, the new album, out now.</p>
     </div>
     <nav aria-label="Footer">
-      <p>Explore</p>
+      <p class="footer-title">Explore</p>
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#biography">Biography</a></li>
@@ -267,7 +247,7 @@
       </ul>
     </nav>
     <div>
-      <p>Follow</p>
+      <p class="footer-title">Follow</p>
       <ul class="social">
         <li><a href="https://open.spotify.com/search/Gorillaz"><img src="assets/icon-spotify.png" alt="Gorillaz on Spotify"></a></li>
         <li><a href="https://www.youtube.com/@gorillaz"><img src="assets/icon-youtube.png" alt="Gorillaz on YouTube"></a></li>
