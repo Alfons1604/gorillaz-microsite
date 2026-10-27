@@ -1,4 +1,4 @@
-/* Variables */
+/* ===== VARIABLES ===== */
 :root {
   --fondo: #102026;
   --crema: #FFF3D6;
@@ -8,7 +8,7 @@
   --tan: #A6855D;
 }
 
-/* Reset */
+/* ===== RESET Y BASE ===== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -19,7 +19,6 @@ ul {
   list-style: none;
 }
 
-/* Base */
 body {
   background: var(--fondo);
   color: var(--crema);
@@ -36,26 +35,30 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
 }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2.25rem; margin-bottom: 1rem; }
-h3 { font-size: 1.5rem; }
+h1 { font-size: 4rem; }
+h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+h3 { font-size: 1.75rem; margin-bottom: 0.5rem; }
 
 p { margin-bottom: 1rem; }
 
 a { color: var(--ambar); }
 
-/* Imágenes e iframes fluidos */
 img, iframe {
   max-width: 100%;
   display: block;
 }
 
-/* Secciones: 1.5rem en móvil y 80px en 1440px */
 section, footer {
-  padding: 3rem max(1.5rem, calc((100% - 1280px) / 2));
+  padding: 4rem max(1.5rem, calc((100% - 1280px) / 2));
 }
 
-/* Skip link */
+.label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+/* ===== ACCESIBILIDAD ===== */
 .skip-link {
   position: absolute;
   top: -100px;
@@ -70,14 +73,23 @@ section, footer {
   top: 1rem;
 }
 
-/* Botones */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--amarillo);
+  outline-offset: 3px;
+}
+
+/* ===== BOTONES ===== */
 .btn {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.75rem;
   background: var(--amarillo);
   color: var(--fondo);
   border: 2px solid var(--amarillo);
   font-family: "Roboto Condensed", sans-serif;
+  font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
   text-decoration: none;
@@ -94,16 +106,7 @@ section, footer {
   content: " →";
 }
 
-/* Foco visible */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
-  outline: 3px solid var(--amarillo);
-  outline-offset: 3px;
-}
-
-/* Header */
+/* ===== HEADER ===== */
 header {
   position: absolute;
   top: 0;
@@ -119,12 +122,13 @@ header {
 }
 
 .logo img {
-  width: 160px;
+  width: 180px;
 }
 
 header nav ul {
   display: flex;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
 }
 
 header nav a {
@@ -135,7 +139,7 @@ header nav a {
   color: var(--ambar);
 }
 
-/* Hero */
+/* ===== HERO ===== */
 .hero {
   position: relative;
   display: flex;
@@ -184,4 +188,553 @@ header nav a {
 .hero .btn {
   margin-right: 1rem;
   margin-bottom: 0.5rem;
+}
+
+/* ===== BIOGRAPHY ===== */
+#biography {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#biography figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.stats strong {
+  display: block;
+  font-size: 2.25rem;
+  line-height: 1.2;
+  color: var(--amarillo);
+}
+
+.characters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.characters li {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  column-gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  background: var(--oxido);
+  border-radius: 8px;
+}
+
+.characters img {
+  grid-row: span 2;
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+}
+
+.characters h3 {
+  font-size: 1.25rem;
+  margin: 0;
+  align-self: end;
+}
+
+.characters p {
+  margin: 0;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  align-self: start;
+}
+
+/* ===== ALBUMS: principal ===== */
+.main-album {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.main-album .label {
+  color: var(--ambar);
+}
+
+.main-album .btn {
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== ALBUMS: carrusel sin JS (3 copias, 260px por portada) ===== */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 0 1.5rem;
+}
+
+.carousel input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.track {
+  position: relative;
+  left: calc(50% - 130px - (8 + var(--n, 0)) * 260px);
+  display: flex;
+  transition: left 0.5s ease;
+}
+
+#a1:checked ~ .track { --n: 0; }
+#a2:checked ~ .track { --n: 1; }
+#a3:checked ~ .track { --n: 2; }
+#a4:checked ~ .track { --n: 3; }
+#a5:checked ~ .track { --n: 4; }
+#a6:checked ~ .track { --n: 5; }
+#a7:checked ~ .track { --n: 6; }
+#a8:checked ~ .track { --n: 7; }
+
+.track li {
+  flex: 0 0 260px;
+  opacity: 0.5;
+  transform: scale(0.7);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.track label {
+  display: block;
+  cursor: pointer;
+}
+
+.track img {
+  width: 240px;
+  height: 240px;
+  margin: 0 auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Portada activa (solo copia central: li 9 a 16) */
+#a1:checked ~ .track li:nth-child(9),
+#a2:checked ~ .track li:nth-child(10),
+#a3:checked ~ .track li:nth-child(11),
+#a4:checked ~ .track li:nth-child(12),
+#a5:checked ~ .track li:nth-child(13),
+#a6:checked ~ .track li:nth-child(14),
+#a7:checked ~ .track li:nth-child(15),
+#a8:checked ~ .track li:nth-child(16) {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Foco visible con teclado */
+#a1:focus-visible ~ .track li:nth-child(9) img,
+#a2:focus-visible ~ .track li:nth-child(10) img,
+#a3:focus-visible ~ .track li:nth-child(11) img,
+#a4:focus-visible ~ .track li:nth-child(12) img,
+#a5:focus-visible ~ .track li:nth-child(13) img,
+#a6:focus-visible ~ .track li:nth-child(14) img,
+#a7:focus-visible ~ .track li:nth-child(15) img,
+#a8:focus-visible ~ .track li:nth-child(16) img {
+  outline: 3px solid var(--amarillo);
+  outline-offset: 3px;
+}
+
+/* Info: solo la del álbum activo */
+.info {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+#a1:checked ~ .infos .info:nth-child(1),
+#a2:checked ~ .infos .info:nth-child(2),
+#a3:checked ~ .infos .info:nth-child(3),
+#a4:checked ~ .infos .info:nth-child(4),
+#a5:checked ~ .infos .info:nth-child(5),
+#a6:checked ~ .infos .info:nth-child(6),
+#a7:checked ~ .infos .info:nth-child(7),
+#a8:checked ~ .infos .info:nth-child(8) {
+  display: flex;
+}
+
+.info .btn {
+  margin: 0 0.5rem 0.5rem;
+}
+
+.info-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.info-nav p {
+  min-width: 160px;
+  margin: 0;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.info-nav strong {
+  display: block;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+
+.info-nav span {
+  color: var(--amarillo);
+  font-weight: 600;
+}
+
+.info-nav label {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  background: var(--ambar);
+  color: var(--fondo);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ===== WATCH ===== */
+.watch {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  background: var(--oxido);
+}
+
+.watch h2 {
+  margin: 0;
+}
+
+.watch iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+.watch figcaption {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.watch .label {
+  margin-top: 1rem;
+  color: var(--ambar);
+}
+
+/* ===== ON TOUR ===== */
+#on-tour > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+#on-tour > div > img {
+  width: 100%;
+  max-width: 410px;
+  align-self: flex-start;
+  border-radius: 8px;
+}
+
+.dates li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--tan);
+}
+
+.dates li > span:first-child {
+  flex: 0 0 130px;
+  font-weight: 600;
+}
+
+.dates strong {
+  flex: 1 1 150px;
+  font-family: "Roboto Condensed", sans-serif;
+  text-transform: uppercase;
+}
+
+.dates li > span:nth-child(3) {
+  flex: 1 1 150px;
+}
+
+.dates .btn {
+  padding: 0.5rem 1.25rem;
+}
+
+.dates a:not(.btn) {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.dates a:not(.btn)::after {
+  content: " →";
+}
+
+#on-tour iframe {
+  width: 100%;
+  height: 350px;
+  border: 0;
+}
+
+/* ===== CONTACT ===== */
+#contact > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+fieldset {
+  border: 0;
+  margin-bottom: 1rem;
+}
+
+legend {
+  margin-bottom: 0.5rem;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--amarillo);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  background: transparent;
+  color: var(--crema);
+  border: 2px solid var(--ambar);
+  border-radius: 4px;
+  font: inherit;
+}
+
+::placeholder {
+  color: var(--crema);
+  opacity: 0.7;
+}
+
+form .btn {
+  width: 100%;
+}
+
+.merch ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.merch li {
+  flex: 1 1 140px;
+  padding: 1rem;
+  background: var(--oxido);
+  border-radius: 8px;
+}
+
+.merch img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+}
+
+.merch h4 {
+  font-size: 1rem;
+}
+
+.merch .btn {
+  display: block;
+  text-align: center;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  display: grid;
+  gap: 2rem;
+  border-top: 1px solid var(--tan);
+}
+
+.brand {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+footer nav p,
+footer div:nth-of-type(2) > p {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--amarillo);
+}
+
+footer nav a {
+  text-decoration: none;
+}
+
+.social {
+  display: flex;
+  gap: 1rem;
+}
+
+.social img {
+  width: 40px;
+  height: 40px;
+}
+
+footer > p {
+  margin: 0;
+}
+
+/* ===== TABLET (600 px) ===== */
+@media (min-width: 600px) {
+  .hero p {
+    font-size: 1.5rem;
+  }
+
+  .characters {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===== ESCRITORIO (900 px): rejilla de 12 columnas, 1280 px, gutter 24 px ===== */
+@media (min-width: 900px) {
+  section {
+    padding-block: 6rem;
+  }
+
+  h2 {
+    font-size: 3.5rem;
+  }
+
+  #biography,
+  .main-album,
+  .watch,
+  #on-tour > div {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+  }
+
+  /* Biography: imagen columnas 1-5, texto columnas 7-12 */
+  #biography {
+    align-items: start;
+  }
+
+  #biography figure {
+    grid-column: 1 / span 5;
+  }
+
+  #biography figure img {
+    width: 100%;
+    aspect-ratio: 520 / 732;
+    object-fit: cover;
+  }
+
+  #biography figure + div {
+    grid-column: 7 / span 6;
+  }
+
+  /* Albums: portada columnas 1-5, info columnas 7-12 */
+  .main-album {
+    align-items: center;
+  }
+
+  .main-album img {
+    grid-column: 1 / span 5;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .main-album div {
+    grid-column: 7 / span 6;
+  }
+
+  /* Watch: vídeo grande 8 columnas, pequeño 4 columnas */
+  .watch h2 {
+    grid-column: 1 / -1;
+  }
+
+  .watch > figure {
+    grid-column: 1 / span 8;
+  }
+
+  .watch > div {
+    grid-column: 9 / span 4;
+  }
+
+  /* On Tour: póster 4 columnas, fechas 8 columnas a la altura del póster */
+  #on-tour > div {
+    row-gap: 0;
+  }
+
+  #on-tour > div > img {
+    grid-column: 1 / span 4;
+    max-width: none;
+    align-self: start;
+  }
+
+  .dates {
+    grid-column: 5 / span 8;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dates li {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 8.5rem 1.2fr 1fr auto auto;
+    column-gap: 1rem;
+    align-items: center;
+  }
+
+  /* Contact: formulario 6 columnas, merch 6 columnas */
+  #contact > div {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  form,
+  .merch {
+    flex: 0 0 49%;
+  }
+
+  /* Footer: 3 columnas y fila legal */
+  footer {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  footer > p:nth-of-type(1) {
+    grid-column: 1 / 3;
+  }
+
+  footer > p:nth-of-type(2) {
+    text-align: right;
+  }
 }
