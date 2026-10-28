@@ -10,7 +10,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Cabecera -->
+  <!-- Header -->
   <header>
     <a class="logo" href="#home"><img src="assets/logo.png" alt="Gorillaz – back to top"></a>
     <nav aria-label="Main">
@@ -42,7 +42,7 @@
         <img src="assets/biography.png" alt="The four Gorillaz characters with the band logo">
         <figcaption>Artwork © Jamie Hewlett / Gorillaz</figcaption>
       </figure>
-      <div>
+      <div class="bio-text">
         <h2>Biography</h2>
         <p>Gorillaz was created in 1998 in London by musician Damon Albarn and artist Jamie Hewlett. Instead of posing for photos, the band exists as four animated characters: 2D (vocals and keyboards), Murdoc Niccals (bass), Noodle (guitar) and Russel Hobbs (drums).</p>
         <p>Their self-titled debut album arrived in 2001 and included “Clint Eastwood.” Demon Days (2005) and the hit “Feel Good Inc.” turned them into global stars, and in 2006 Guinness World Records named them the most successful virtual band.</p>
@@ -53,10 +53,10 @@
           <li><strong>4</strong> Animated members</li>
         </ul>
         <ul class="characters">
-          <li><img src="assets/char-2d.png" alt=""><h3>2D</h3><p>Vocals</p></li>
-          <li><img src="assets/char-murdoc.png" alt=""><h3>Murdoc</h3><p>Bass</p></li>
-          <li><img src="assets/char-noodle.png" alt=""><h3>Noodle</h3><p>Guitar</p></li>
-          <li><img src="assets/char-russel.png" alt=""><h3>Russel</h3><p>Drums</p></li>
+          <li><img src="assets/char-2d.png" alt=""><div><h3>2D</h3><p>Vocals</p></div></li>
+          <li><img src="assets/char-murdoc.png" alt=""><div><h3>Murdoc</h3><p>Bass</p></div></li>
+          <li><img src="assets/char-noodle.png" alt=""><div><h3>Noodle</h3><p>Guitar</p></div></li>
+          <li><img src="assets/char-russel.png" alt=""><div><h3>Russel</h3><p>Drums</p></div></li>
         </ul>
         <a class="btn btn-alt arrow" href="#albums">See the albums</a>
       </div>
@@ -67,22 +67,23 @@
       <h2>Albums</h2>
       <p class="intro">Open the latest album on Spotify, or browse the rest of the discography below.</p>
 
-      <!-- Álbum principal -->
       <article class="main-album">
         <img src="assets/the-mountain.png" alt="Cover of The Mountain: the Gorillaz characters on a mountain above golden clouds">
-        <div>
+        <div class="album-text">
           <p class="label">Latest album</p>
           <h3>The Mountain</h3>
           <p class="meta">2026 · 15 songs · 66 min</p>
           <p>Gorillaz’s ninth studio album, released on 27 February 2026 on their own label, KONG. Built around grief, death and the afterlife, it was recorded in India after Damon Albarn and Jamie Hewlett lost their parents within days of each other.</p>
           <p>Western pop and electronics meet sitar, tabla and bansuri. Guests include Bizarrap, Trueno, Johnny Marr, Sparks, IDLES and Anoushka Shankar, plus posthumous appearances by Dennis Hopper and Bobby Womack.</p>
           <p>Debuted at number one on the UK albums chart.</p>
-          <a class="btn" href="https://open.spotify.com/search/Gorillaz%20The%20Mountain">Listen</a>
-          <a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20The%20Mountain">Open on Spotify</a>
+          <div class="buttons">
+            <a class="btn" href="https://open.spotify.com/search/Gorillaz%20The%20Mountain"><img src="assets/icon-play.png" alt="">Listen</a>
+            <a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20The%20Mountain">Open on Spotify</a>
+          </div>
         </div>
       </article>
 
-      <!-- Carrusel infinito sin JS: los radios eligen el álbum y CSS rota el orden de las portadas -->
+      <!-- More albums -->
       <h3>More albums</h3>
       <div class="carousel">
         <input type="radio" name="album" id="a1" aria-label="Gorillaz (2001)" checked>
@@ -105,38 +106,40 @@
           <li style="--i:7"><label for="a8"><img src="assets/cracker-island.jpg" alt="Cover of Cracker Island (2023)"></label></li>
         </ul>
 
+        <p class="scroll-hint" aria-hidden="true">Scroll ↓</p>
+
         <div class="infos">
           <div class="info">
-            <div class="info-buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Gorillaz%202001">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Gorillaz%202001">Open on Spotify</a></div>
-            <div class="info-nav"><label for="a8" aria-hidden="true">←</label><p><strong>Gorillaz</strong><span>2001</span></p><label for="a2" aria-hidden="true">→</label></div>
+            <div class="buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Gorillaz%202001"><img src="assets/icon-play.png" alt="">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Gorillaz%202001">Open on Spotify</a></div>
+            <div class="info-nav"><label for="a8" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label><p><strong>Gorillaz</strong><span>2001</span></p><label for="a2" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label></div>
           </div>
           <div class="info">
-            <div class="info-buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Demon%20Days">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Demon%20Days">Open on Spotify</a></div>
-            <div class="info-nav"><label for="a1" aria-hidden="true">←</label><p><strong>Demon Days</strong><span>2005</span></p><label for="a3" aria-hidden="true">→</label></div>
+            <div class="buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Demon%20Days"><img src="assets/icon-play.png" alt="">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Demon%20Days">Open on Spotify</a></div>
+            <div class="info-nav"><label for="a1" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label><p><strong>Demon Days</strong><span>2005</span></p><label for="a3" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label></div>
           </div>
           <div class="info">
-            <div class="info-buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Plastic%20Beach">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Plastic%20Beach">Open on Spotify</a></div>
-            <div class="info-nav"><label for="a2" aria-hidden="true">←</label><p><strong>Plastic Beach</strong><span>2010</span></p><label for="a4" aria-hidden="true">→</label></div>
+            <div class="buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Plastic%20Beach"><img src="assets/icon-play.png" alt="">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Plastic%20Beach">Open on Spotify</a></div>
+            <div class="info-nav"><label for="a2" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label><p><strong>Plastic Beach</strong><span>2010</span></p><label for="a4" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label></div>
           </div>
           <div class="info">
-            <div class="info-buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20The%20Fall">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20The%20Fall">Open on Spotify</a></div>
-            <div class="info-nav"><label for="a3" aria-hidden="true">←</label><p><strong>The Fall</strong><span>2011</span></p><label for="a5" aria-hidden="true">→</label></div>
+            <div class="buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20The%20Fall"><img src="assets/icon-play.png" alt="">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20The%20Fall">Open on Spotify</a></div>
+            <div class="info-nav"><label for="a3" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label><p><strong>The Fall</strong><span>2011</span></p><label for="a5" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label></div>
           </div>
           <div class="info">
-            <div class="info-buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Humanz">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Humanz">Open on Spotify</a></div>
-            <div class="info-nav"><label for="a4" aria-hidden="true">←</label><p><strong>Humanz</strong><span>2017</span></p><label for="a6" aria-hidden="true">→</label></div>
+            <div class="buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Humanz"><img src="assets/icon-play.png" alt="">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Humanz">Open on Spotify</a></div>
+            <div class="info-nav"><label for="a4" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label><p><strong>Humanz</strong><span>2017</span></p><label for="a6" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label></div>
           </div>
           <div class="info">
-            <div class="info-buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20The%20Now%20Now">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20The%20Now%20Now">Open on Spotify</a></div>
-            <div class="info-nav"><label for="a5" aria-hidden="true">←</label><p><strong>The Now Now</strong><span>2018</span></p><label for="a7" aria-hidden="true">→</label></div>
+            <div class="buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20The%20Now%20Now"><img src="assets/icon-play.png" alt="">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20The%20Now%20Now">Open on Spotify</a></div>
+            <div class="info-nav"><label for="a5" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label><p><strong>The Now Now</strong><span>2018</span></p><label for="a7" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label></div>
           </div>
           <div class="info">
-            <div class="info-buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Song%20Machine%20Season%20One">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Song%20Machine%20Season%20One">Open on Spotify</a></div>
-            <div class="info-nav"><label for="a6" aria-hidden="true">←</label><p><strong>Song Machine</strong><span>2020</span></p><label for="a8" aria-hidden="true">→</label></div>
+            <div class="buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Song%20Machine%20Season%20One"><img src="assets/icon-play.png" alt="">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Song%20Machine%20Season%20One">Open on Spotify</a></div>
+            <div class="info-nav"><label for="a6" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label><p><strong>Song Machine</strong><span>2020</span></p><label for="a8" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label></div>
           </div>
           <div class="info">
-            <div class="info-buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Cracker%20Island">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Cracker%20Island">Open on Spotify</a></div>
-            <div class="info-nav"><label for="a7" aria-hidden="true">←</label><p><strong>Cracker Island</strong><span>2023</span></p><label for="a1" aria-hidden="true">→</label></div>
+            <div class="buttons"><a class="btn" href="https://open.spotify.com/search/Gorillaz%20Cracker%20Island"><img src="assets/icon-play.png" alt="">Listen</a><a class="btn btn-alt" href="https://open.spotify.com/search/Gorillaz%20Cracker%20Island">Open on Spotify</a></div>
+            <div class="info-nav"><label for="a7" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label><p><strong>Cracker Island</strong><span>2023</span></p><label for="a1" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label></div>
           </div>
         </div>
       </div>
@@ -169,33 +172,31 @@
         <ul class="dates">
           <li>
             <span>Oct 28, 2026</span> <strong>Oakland, CA</strong> <span>Oakland Arena</span>
+            <a class="venue" href="https://www.google.com/maps/search/?api=1&amp;query=Oakland+Arena+Oakland+CA" target="_blank" rel="noopener"><img src="assets/ubicaciones.png" alt="View Oakland Arena on Google Maps"></a>
             <a class="btn btn-alt" href="https://www.gorillaz.com/tour" aria-label="Tickets for Oakland, Oct 28">Tickets</a>
-            <a class="venue" href="https://maps.google.com/maps?q=Oakland+Arena+Oakland+CA&amp;output=embed" target="tour-map" aria-label="View venue: Oakland Arena">View venue</a>
           </li>
           <li>
             <span>Oct 30, 2026</span> <strong>Portland, OR</strong> <span>Moda Center</span>
+            <a class="venue" href="https://www.google.com/maps/search/?api=1&amp;query=Moda+Center+Portland+OR" target="_blank" rel="noopener"><img src="assets/ubicaciones.png" alt="View Moda Center on Google Maps"></a>
             <a class="btn btn-alt" href="https://www.gorillaz.com/tour" aria-label="Tickets for Portland, Oct 30">Tickets</a>
-            <a class="venue" href="https://maps.google.com/maps?q=Moda+Center+Portland+OR&amp;output=embed" target="tour-map" aria-label="View venue: Moda Center">View venue</a>
           </li>
           <li>
             <span>Oct 31, 2026</span> <strong>Seattle, WA</strong> <span>Climate Pledge Arena</span>
+            <a class="venue" href="https://www.google.com/maps/search/?api=1&amp;query=Climate+Pledge+Arena+Seattle+WA" target="_blank" rel="noopener"><img src="assets/ubicaciones.png" alt="View Climate Pledge Arena on Google Maps"></a>
             <a class="btn btn-alt" href="https://www.gorillaz.com/tour" aria-label="Tickets for Seattle, Oct 31">Tickets</a>
-            <a class="venue" href="https://maps.google.com/maps?q=Climate+Pledge+Arena+Seattle+WA&amp;output=embed" target="tour-map" aria-label="View venue: Climate Pledge Arena">View venue</a>
           </li>
           <li>
             <span>Nov 14, 2026</span> <strong>Alajuela, Costa Rica</strong> <span>Parque Viva</span>
+            <a class="venue" href="https://www.google.com/maps/search/?api=1&amp;query=Parque+Viva+Alajuela+Costa+Rica" target="_blank" rel="noopener"><img src="assets/ubicaciones.png" alt="View Parque Viva on Google Maps"></a>
             <a class="btn btn-alt" href="https://www.gorillaz.com/tour" aria-label="Tickets for Alajuela, Nov 14">Tickets</a>
-            <a class="venue" href="https://maps.google.com/maps?q=Parque+Viva+Alajuela+Costa+Rica&amp;output=embed" target="tour-map" aria-label="View venue: Parque Viva">View venue</a>
           </li>
           <li>
             <span>Nov 17, 2026</span> <strong>Bogotá, Colombia</strong> <span>Coliseo Medplus</span>
+            <a class="venue" href="https://www.google.com/maps/search/?api=1&amp;query=Coliseo+Medplus+Bogota+Colombia" target="_blank" rel="noopener"><img src="assets/ubicaciones.png" alt="View Coliseo Medplus on Google Maps"></a>
             <a class="btn btn-alt" href="https://www.gorillaz.com/tour" aria-label="Tickets for Bogotá, Nov 17">Tickets</a>
-            <a class="venue" href="https://maps.google.com/maps?q=Coliseo+Medplus+Bogota+Colombia&amp;output=embed" target="tour-map" aria-label="View venue: Coliseo Medplus">View venue</a>
           </li>
         </ul>
       </div>
-      <h3>Venue map</h3>
-      <iframe class="tour-map" name="tour-map" title="Map of the selected venue" src="https://maps.google.com/maps?q=Oakland+Arena+Oakland+CA&amp;output=embed"></iframe>
     </section>
 
     <!-- Contact -->
@@ -230,32 +231,36 @@
 
   </main>
 
-  <!-- Pie de página -->
+  <!-- Footer -->
   <footer>
-    <div>
-      <p class="brand">Gorillaz</p>
-      <p>The Mountain, the new album, out now.</p>
+    <div class="footer-main">
+      <div class="footer-brand">
+        <p class="brand">Gorillaz</p>
+        <p>The Mountain, the new album, out now.</p>
+      </div>
+      <nav aria-label="Footer">
+        <p class="footer-title">Explore</p>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#biography">Biography</a></li>
+          <li><a href="#albums">Albums</a></li>
+          <li><a href="#on-tour">On Tour</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer-follow">
+        <p class="footer-title">Follow</p>
+        <ul class="social">
+          <li><a href="https://open.spotify.com/search/Gorillaz"><img src="assets/icon-spotify.png" alt="Gorillaz on Spotify"></a></li>
+          <li><a href="https://www.youtube.com/@gorillaz"><img src="assets/icon-youtube.png" alt="Gorillaz on YouTube"></a></li>
+          <li><a href="https://www.instagram.com/gorillaz/"><img src="assets/icon-instagram.png" alt="Gorillaz on Instagram"></a></li>
+        </ul>
+      </div>
     </div>
-    <nav aria-label="Footer">
-      <p class="footer-title">Explore</p>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#biography">Biography</a></li>
-        <li><a href="#albums">Albums</a></li>
-        <li><a href="#on-tour">On Tour</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <div>
-      <p class="footer-title">Follow</p>
-      <ul class="social">
-        <li><a href="https://open.spotify.com/search/Gorillaz"><img src="assets/icon-spotify.png" alt="Gorillaz on Spotify"></a></li>
-        <li><a href="https://www.youtube.com/@gorillaz"><img src="assets/icon-youtube.png" alt="Gorillaz on YouTube"></a></li>
-        <li><a href="https://www.instagram.com/gorillaz/"><img src="assets/icon-instagram.png" alt="Gorillaz on Instagram"></a></li>
-      </ul>
+    <div class="legal">
+      <p><small>© 2026 Gorillaz Fan Project.</small></p>
+      <p><small>Images and cover art © Gorillaz / KONG.</small></p>
     </div>
-    <p><small>© 2026 Gorillaz Fan Project.</small></p>
-    <p><small>Images and cover art © Gorillaz / KONG.</small></p>
   </footer>
 </body>
 </html>
