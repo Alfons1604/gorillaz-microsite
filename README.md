@@ -4,6 +4,10 @@ Academic project for **Web Interfaces Design** (2nd year, Web Application Develo
 
 A responsive, accessible one-page microsite about the band Gorillaz and their album *The Mountain* (2026), with five sections: Home, Biography, Albums, On Tour and Contact.
 
+### Site
+
+https://alfons1604.github.io/gorillaz-microsite/
+
 ## Features
 
 - Mobile-first layout with a hamburger menu below 900 px
@@ -14,7 +18,7 @@ A responsive, accessible one-page microsite about the band Gorillaz and their al
 
 ## Tech
 
-HTML5, CSS3 and vanilla JavaScript. Fonts: Roboto Condensed and Work Sans.
+HTML5, CSS3. Fonts: Roboto Condensed and Work Sans.
 
 ## Copyright notice
 
