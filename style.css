@@ -171,6 +171,10 @@ header nav a {
 }
 
 /* Transparente sobre el hero y con blur y línea al bajar de Biography */
+/*@Supports es para detectar si el navegador soporta una funcion aqui lo puse 
+porque cuando lo busque ponia que era una funcion nueva a si que preferia asegurar 
+y evitarme problemas así*/
+
 @supports (animation-timeline: scroll()) {
   header {
     background: transparent;
@@ -187,6 +191,7 @@ header nav a {
   to {
     background: rgba(16, 32, 38, 0.8);
     -webkit-backdrop-filter: blur(10px);
+    /*Queria un blur busque como aplicarlo y encontre esta linea de comando*/
     backdrop-filter: blur(10px);
     border-bottom-color: var(--tan);
   }
@@ -212,10 +217,16 @@ header nav a {
   z-index: 0;
 }
 
+/*Tenia un efecto en mi mokup a si que busque como ponerlo encontre esto
+  primero creo el elemento virtual con el ::after y luego le aplico un degradado de arriba hacia abajo
+  para que funcione debia poner content: ""  y lo pongo en la capa 1 para 
+  que quede sobre la imagen pero debajo del texto insert 0 es similar a poner todo a 0
+*/
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
+  /*Aqui aplico el degradado de arriba a abajo con 80%  de opacidad y el trasparent para que se desvanezca suavemente cuando llege al 35% de la altura del .hero*/
   background: linear-gradient(to bottom, rgba(16, 32, 38, 0.8), transparent 35%);
   z-index: 1;
 }
