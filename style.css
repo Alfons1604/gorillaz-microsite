@@ -53,7 +53,7 @@ img, iframe {
 }
 
 section, footer {
-  padding: 4rem var(--lateral);
+  padding: 3rem var(--lateral);
 }
 
 .label {
@@ -91,14 +91,15 @@ textarea:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  min-height: 48px;
-  padding: 0.5rem 1.5rem;
+  height: 48px;
+  padding: 0 1.5rem;
   background: var(--amarillo);
   color: var(--fondo);
   border: 2px solid var(--amarillo);
   border-radius: 4px;
   font-family: "Roboto Condensed", sans-serif;
   font-size: 1rem;
+  line-height: 1;
   font-weight: 700;
   text-transform: uppercase;
   text-decoration: none;
@@ -124,6 +125,11 @@ textarea:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+.hero .btn,
+.buttons .btn {
+  min-width: 11.5rem;
 }
 
 /* ===== Header ===== */
@@ -161,6 +167,7 @@ header nav a {
   text-transform: uppercase;
   text-decoration: none;
   color: var(--ambar);
+  text-shadow: -1px 1px 2px #000, 1px 1px 2px #000;
 }
 
 /* Transparente sobre el hero y con blur y línea al bajar de Biography */
@@ -172,7 +179,7 @@ header nav a {
     border-bottom-color: transparent;
     animation: barra linear both;
     animation-timeline: scroll(root);
-    animation-range: 85vh calc(85vh + 80px);
+    animation-range: 70vh calc(70vh + 80px);
   }
 }
 
@@ -190,8 +197,9 @@ header nav a {
   position: relative;
   display: flex;
   align-items: center;
-  height: 85vh;
-  min-height: 560px;
+  height: 70vh;
+  min-height: 440px;
+  max-height: 720px;
   padding: 0;
 }
 
@@ -215,11 +223,11 @@ header nav a {
 .hero div {
   position: relative;
   z-index: 2;
-  padding-inline: var(--lateral);
+  padding-inline: min(var(--lateral), 5rem);
 }
 
 .hero h1 {
-  font-size: clamp(3rem, 7vw, 5rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   color: var(--crema);
 }
 
@@ -309,7 +317,7 @@ header nav a {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .main-album > img {
@@ -319,13 +327,11 @@ header nav a {
 
 .album-text {
   justify-content: center;
-  
 }
 
 .main-album .label {
   color: var(--ambar);
 }
-
 
 .main-album .meta {
   color: var(--amarillo);
@@ -414,20 +420,12 @@ header nav a {
   outline-offset: 3px;
 }
 
-.listen-hint {
-  margin: 0;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-align: center;
-  text-transform: uppercase;
-}
-
 .info {
   display: none;
   flex-direction: column;
   align-items: center;
   gap: 1.25rem;
-  margin-top: 1rem;
+  margin-top: 2.5rem;
 }
 
 #a1:checked ~ .infos .info:nth-child(1),
@@ -623,8 +621,6 @@ form .btn {
   margin-top: auto;
 }
 
-
-
 .merch ul {
   flex: 1;
   display: flex;
@@ -718,6 +714,7 @@ footer nav a {
   .characters li {
     flex: 0 0 calc(50% - 0.5rem);
   }
+
   header {
     justify-content: space-between;
   }
@@ -726,22 +723,19 @@ footer nav a {
 /* ===== Escritorio (900 px): 1280 px útiles ===== */
 @media (min-width: 900px) {
   section {
-    padding-block: 6rem;
+    padding-block: 4rem;
   }
 
   h2 {
     font-size: 2.5rem;
   }
 
+  /* Nav */
   header {
     justify-content: space-between;
   }
 
-  /*Nav*/
-  header {
-    justify-content: space-between;
-  }
-  /* Biography*/
+  /* Biography */
   #biography {
     flex-direction: row;
     justify-content: space-between;
@@ -795,7 +789,7 @@ footer nav a {
     margin-top: auto;
   }
 
-  /* Watch:*/
+  /* Watch */
   .watch .video-large {
     flex: 0 0 66%;
   }
@@ -830,7 +824,7 @@ footer nav a {
     padding: 0;
   }
 
-  /* Contact*/
+  /* Contact */
   .contact-layout {
     flex-direction: row;
     justify-content: space-between;
@@ -847,7 +841,7 @@ footer nav a {
     flex-wrap: nowrap;
   }
 
-  /* Footer: marca, menú y redes */
+  /* Footer */
   .footer-main {
     flex-direction: row;
   }
