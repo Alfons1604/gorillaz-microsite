@@ -337,7 +337,8 @@ y evitarme problemas así*/
 }
 
 .album-text {
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-album .label {
@@ -346,6 +347,24 @@ y evitarme problemas así*/
 
 .main-album .meta {
   color: var(--amarillo);
+}
+
+/* Reproductor de Spotify */
+.player {
+  flex-shrink: 0;
+  width: 100%;
+  height: 152px;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px var(--tan);
+}
+
+.album-text .player {
+  margin-top: auto;
+}
+
+.info .player {
+  max-width: 480px;
 }
 
 /* Carrusel */
@@ -427,7 +446,7 @@ y evitarme problemas así*/
 #a6:focus-visible ~ .track li:nth-child(6) img,
 #a7:focus-visible ~ .track li:nth-child(7) img,
 #a8:focus-visible ~ .track li:nth-child(8) img {
-  outline: 3px solid var(--amarillo);
+  outline: 2px solid var(--amarillo);
   outline-offset: 3px;
 }
 
@@ -435,8 +454,8 @@ y evitarme problemas así*/
   display: none;
   flex-direction: column;
   align-items: center;
-  gap: 1.25rem;
-  margin-top: 2.5rem;
+  gap: 1.5rem;
+  margin-top: 3.5rem;
 }
 
 #a1:checked ~ .infos .info:nth-child(1),
@@ -448,10 +467,6 @@ y evitarme problemas así*/
 #a7:checked ~ .infos .info:nth-child(7),
 #a8:checked ~ .infos .info:nth-child(8) {
   display: flex;
-}
-
-.info .buttons {
-  justify-content: center;
 }
 
 .info-nav {
@@ -542,6 +557,7 @@ y evitarme problemas así*/
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  margin-bottom: 3rem;
 }
 
 .tour-layout > img {
@@ -578,6 +594,12 @@ y evitarme problemas así*/
 .venue img {
   width: 40px;
   height: 40px;
+}
+
+.tour-map {
+  width: 100%;
+  height: 360px;
+  border: 0;
 }
 
 /* ===== Contact ===== */
@@ -794,10 +816,6 @@ footer nav a {
 
   .album-text {
     flex: 0 0 49%;
-  }
-
-  .album-text .buttons {
-    margin-top: auto;
   }
 
   /* Watch */
