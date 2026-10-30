@@ -62,29 +62,6 @@ section, footer {
   margin-bottom: 0.25rem;
 }
 
-/* ===== Accesibilidad ===== */
-.skip-link {
-  position: absolute;
-  top: -100px;
-  left: 1rem;
-  background: var(--amarillo);
-  color: var(--fondo);
-  padding: 0.5rem 1rem;
-  z-index: 10;
-}
-
-.skip-link:focus {
-  top: 1rem;
-}
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
-  outline: 3px solid var(--amarillo);
-  outline-offset: 3px;
-}
-
 /* ===== Botones ===== */
 .btn {
   display: inline-flex;
