@@ -235,150 +235,150 @@ header nav a:hover { color: #FFF3D6; }
 
 .album-text .player { margin-top: auto; }
 
-/* ===== Carrusel (radio buttons ocultos + ~ ) ===== */
+/* Carrusel */
 .carousel {
   position: relative;
-  width: 280px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+  overflow: hidden;
+  padding: 3rem 0 1rem;
 }
 
-/* Radios ocultos pero enfocables con el teclado */
 .carousel input {
   position: absolute;
   top: 0;
   left: 0;
-  width: 0;
-  height: 0;
-  margin: 0;
   opacity: 0;
+  pointer-events: none;
 }
 
-.viewport {
-  width: 280px;
-  height: 480px;
-  overflow: hidden;
+.track {
+  position: relative;
+  left: calc(50% - 130px - 4 * 260px);
+  display: flex;
 }
 
-/* La "cinta transportadora" mide lo que midan sus cards */
-.slider {
+.track li {
+  flex: 0 0 260px;
+  order: mod(var(--i) - var(--n, 0) + 12, 8);
+  opacity: 0.55;
+  transform: scale(0.7);
+}
+
+#a1:checked ~ .track { --n: 0; }
+#a2:checked ~ .track { --n: 1; }
+#a3:checked ~ .track { --n: 2; }
+#a4:checked ~ .track { --n: 3; }
+#a5:checked ~ .track { --n: 4; }
+#a6:checked ~ .track { --n: 5; }
+#a7:checked ~ .track { --n: 6; }
+#a8:checked ~ .track { --n: 7; }
+
+.track label {
+  display: block;
+  margin: 0;
+  cursor: pointer;
+}
+
+.track img {
+  width: 240px;
+  height: 240px;
+  margin: 0 auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+#a1:checked ~ .track li:nth-child(1),
+#a2:checked ~ .track li:nth-child(2),
+#a3:checked ~ .track li:nth-child(3),
+#a4:checked ~ .track li:nth-child(4),
+#a5:checked ~ .track li:nth-child(5),
+#a6:checked ~ .track li:nth-child(6),
+#a7:checked ~ .track li:nth-child(7),
+#a8:checked ~ .track li:nth-child(8) {
+  opacity: 1;
+  transform: scale(1.2);
+  animation: zoom 0.4s ease;
+}
+
+@keyframes zoom {
+  from {
+    opacity: 0.55;
+    transform: scale(0.7);
+  }
+}
+
+#a1:focus-visible ~ .track li:nth-child(1) img,
+#a2:focus-visible ~ .track li:nth-child(2) img,
+#a3:focus-visible ~ .track li:nth-child(3) img,
+#a4:focus-visible ~ .track li:nth-child(4) img,
+#a5:focus-visible ~ .track li:nth-child(5) img,
+#a6:focus-visible ~ .track li:nth-child(6) img,
+#a7:focus-visible ~ .track li:nth-child(7) img,
+#a8:focus-visible ~ .track li:nth-child(8) img {
+  outline: 2px solid #D9BF71;
+  outline-offset: 3px;
+}
+
+.info {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+
+#a1:checked ~ .infos .info:nth-child(1),
+#a2:checked ~ .infos .info:nth-child(2),
+#a3:checked ~ .infos .info:nth-child(3),
+#a4:checked ~ .infos .info:nth-child(4),
+#a5:checked ~ .infos .info:nth-child(5),
+#a6:checked ~ .infos .info:nth-child(6),
+#a7:checked ~ .infos .info:nth-child(7),
+#a8:checked ~ .infos .info:nth-child(8) {
+  display: flex;
+}
+
+.info .player {
+  max-width: 480px;
+}
+
+.info-nav {
   display: flex;
   align-items: center;
-  gap: 16px;
-  height: 100%;
-  width: max-content;
-  transition: transform 0.4s ease;
+  gap: 1.5rem;
 }
 
-.card {
-  flex-shrink: 0;
-  width: 280px;
-  height: 280px;
-  border-radius: 40px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.card:hover { height: 450px; }
-
-.pic img { width: 100%; height: 240px; object-fit: cover; }
-
-.content {
-  position: relative;
-  top: -40px;
-  z-index: 9;
-  padding: 1rem;
-  background: #732716;
-  border-radius: 40px;
-}
-
-.content h4 { margin-bottom: 0.25rem; }
-.content h4::before { content: "··· "; }
-.content h4::after { content: " ···"; }
-.content h5 { margin-bottom: 0.5rem; color: #FFF3D6; }
-
-.card iframe {
-  width: 100%;
-  height: 152px;
-  border: 0;
-  border-radius: 12px;
-  opacity: 0;
-  transition: 0.3s;
-}
-
-.card:hover iframe { opacity: 1; }
-
-/* Posición de la cinta (sin nesting) */
-#s1:checked ~ .viewport .slider { transform: translateX(0); }
-#s2:checked ~ .viewport .slider { transform: translateX(-296px); }
-#s3:checked ~ .viewport .slider { transform: translateX(-592px); }
-#s4:checked ~ .viewport .slider { transform: translateX(-888px); }
-#s5:checked ~ .viewport .slider { transform: translateX(-1184px); }
-#s6:checked ~ .viewport .slider { transform: translateX(-1480px); }
-#s7:checked ~ .viewport .slider { transform: translateX(-1776px); }
-#s8:checked ~ .viewport .slider { transform: translateX(-2072px); }
-
-/* Flechas */
-.arrow {
-  display: none;
-  position: absolute;
-  top: 240px;
-  z-index: 50;
-  width: 44px;
-  height: 44px;
-  background: #D9BF71;
-  color: #102026;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  line-height: 44px;
-  text-align: center;
-  cursor: pointer;
-  user-select: none;
-  transform: translateY(-50%);
-  transition: 0.3s;
-}
-
-.arrow:hover { transform: translateY(-50%) scale(1.1); }
-.prev { left: -12px; }
-.next { right: -12px; }
-
-#s1:checked ~ .n1, #s2:checked ~ .n2, #s3:checked ~ .n3, #s4:checked ~ .n4,
-#s5:checked ~ .n5, #s6:checked ~ .n6, #s7:checked ~ .n7,
-#s2:checked ~ .p2, #s3:checked ~ .p3, #s4:checked ~ .p4, #s5:checked ~ .p5,
-#s6:checked ~ .p6, #s7:checked ~ .p7, #s8:checked ~ .p8 { display: block; }
-
-/* Puntos */
-.dots { display: flex; gap: 14px; }
-
-.dots label {
-  width: 15px;
-  height: 15px;
+.info-nav p {
+  min-width: 160px;
   margin: 0;
-  background: #A6855D;
-  border-radius: 50%;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.info-nav strong {
+  display: block;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+
+.info-nav span {
+  color: #D9BF71;
+  font-weight: 600;
+}
+
+.info-nav label {
+  display: block;
+  margin: 0;
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
 }
 
-#s1:checked ~ .dots label[for="s1"], #s2:checked ~ .dots label[for="s2"],
-#s3:checked ~ .dots label[for="s3"], #s4:checked ~ .dots label[for="s4"],
-#s5:checked ~ .dots label[for="s5"], #s6:checked ~ .dots label[for="s6"],
-#s7:checked ~ .dots label[for="s7"], #s8:checked ~ .dots label[for="s8"] {
-  background: #D9BF71;
-  transform: scale(1.2);
+.info-nav label img {
+  width: 48px;
+  height: 48px;
 }
 
-/* Foco de teclado sobre el punto activo */
-#s1:focus ~ .dots label[for="s1"], #s2:focus ~ .dots label[for="s2"],
-#s3:focus ~ .dots label[for="s3"], #s4:focus ~ .dots label[for="s4"],
-#s5:focus ~ .dots label[for="s5"], #s6:focus ~ .dots label[for="s6"],
-#s7:focus ~ .dots label[for="s7"], #s8:focus ~ .dots label[for="s8"] {
-  outline: 2px solid #FFF3D6;
-  outline-offset: 3px;
+.info-nav label:first-child img {
+  transform: scaleX(-1);
 }
 
 /* ===== Watch ===== */
@@ -577,13 +577,6 @@ footer nav a { text-decoration: none; }
 
   .main-album > img { flex: 0 0 40.5%; width: 40.5%; }
   .album-text { flex: 0 0 49%; }
-
-  /* Carrusel: 2 cards visibles. El punto 8 y la flecha n7 sobran */
-  .carousel, .viewport { width: 576px; }
-  .prev { left: -60px; }
-  .next { right: -60px; }
-  .n7 { display: none !important; }
-  .dots label[for="s8"] { display: none; }
 
   .watch .video-large { flex: 0 0 66%; }
   .watch .video-side { flex: 0 0 32%; }
