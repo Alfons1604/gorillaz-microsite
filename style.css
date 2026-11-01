@@ -1,5 +1,4 @@
-/* Variable usada solo por el carrusel */
-:root { --amarillo: #D9BF71; }
+
 
 /* ===== Reset y base ===== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -309,7 +308,7 @@ header nav a:hover { color: #FFF3D6; }
 #a6:focus-visible ~ .track li:nth-child(6) img,
 #a7:focus-visible ~ .track li:nth-child(7) img,
 #a8:focus-visible ~ .track li:nth-child(8) img {
-  outline: 3px solid var(--amarillo);
+  outline: 3px solid #D9BF71;
   outline-offset: 3px;
 }
 
@@ -357,7 +356,7 @@ header nav a:hover { color: #FFF3D6; }
 }
 
 .info-nav span {
-  color: var(--amarillo);
+  color: #D9BF71;
   font-weight: 600;
 }
 
