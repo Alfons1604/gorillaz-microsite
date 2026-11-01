@@ -40,16 +40,6 @@ section, footer { padding: 3rem 1.5rem; }
   margin-bottom: 0.25rem;
 }
 
-/* Skip link: fuera de pantalla hasta que recibe el foco */
-.skip-link {
-  position: fixed;
-  top: 1rem;
-  left: -9999px;
-  z-index: 300;
-  padding: 0.8rem 1.1rem;
-  background: #FFF3D6;
-  color: #102026;
-}
 .skip-link:focus { left: 1rem; }
 
 /* ===== Botones ===== */
