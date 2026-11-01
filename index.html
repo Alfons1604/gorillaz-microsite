@@ -75,112 +75,60 @@
       </article>
 
       <h3>More albums</h3>
-      <p class="intro">Hover over an album to open its player.</p>
       <div class="carousel">
-        <!-- Estados: tienen que ir ANTES del resto por el selector ~ -->
-        <input type="radio" name="slide" id="s1" checked>
-        <input type="radio" name="slide" id="s2">
-        <input type="radio" name="slide" id="s3">
-        <input type="radio" name="slide" id="s4">
-        <input type="radio" name="slide" id="s5">
-        <input type="radio" name="slide" id="s6">
-        <input type="radio" name="slide" id="s7">
-        <input type="radio" name="slide" id="s8">
+        <input type="radio" name="album" id="a1" aria-label="Gorillaz (2001)" checked>
+        <input type="radio" name="album" id="a2" aria-label="Demon Days (2005)">
+        <input type="radio" name="album" id="a3" aria-label="Plastic Beach (2010)">
+        <input type="radio" name="album" id="a4" aria-label="The Fall (2011)">
+        <input type="radio" name="album" id="a5" aria-label="Humanz (2017)">
+        <input type="radio" name="album" id="a6" aria-label="The Now Now (2018)">
+        <input type="radio" name="album" id="a7" aria-label="Song Machine (2020)">
+        <input type="radio" name="album" id="a8" aria-label="Cracker Island (2023)">
 
-        <div class="viewport">
-          <div class="slider">
-            <div class="card">
-              <div class="pic"><img src="assets/gorillaz.jpg" alt=""></div>
-              <div class="content">
-                <h4>2001</h4>
-                <h5>Gorillaz</h5>
-                <iframe src="https://open.spotify.com/embed/album/0YvYmLBFFwYxgI4U9KKgUm?theme=0" title="Spotify player: Gorillaz (2001)" allow="encrypted-media" loading="lazy"></iframe>
-              </div>
-            </div>
-            <div class="card">
-              <div class="pic"><img src="assets/demon-days.jpg" alt=""></div>
-              <div class="content">
-                <h4>2005</h4>
-                <h5>Demon Days</h5>
-                <iframe src="https://open.spotify.com/embed/album/0bUTHlWbkSQysoM3VsWldT?theme=0" title="Spotify player: Demon Days (2005)" allow="encrypted-media" loading="lazy"></iframe>
-              </div>
-            </div>
-            <div class="card">
-              <div class="pic"><img src="assets/plastic-beach.jpg" alt=""></div>
-              <div class="content">
-                <h4>2010</h4>
-                <h5>Plastic Beach</h5>
-                <iframe src="https://open.spotify.com/embed/album/2dIGnmEIy1WZIcZCFSj6i8?theme=0" title="Spotify player: Plastic Beach (2010)" allow="encrypted-media" loading="lazy"></iframe>
-              </div>
-            </div>
-            <div class="card">
-              <div class="pic"><img src="assets/the-fall.jpg" alt=""></div>
-              <div class="content">
-                <h4>2011</h4>
-                <h5>The Fall</h5>
-                <iframe src="https://open.spotify.com/embed/album/7xHfsH8Ec9Ory9v6nok3mQ?theme=0" title="Spotify player: The Fall (2011)" allow="encrypted-media" loading="lazy"></iframe>
-              </div>
-            </div>
-            <div class="card">
-              <div class="pic"><img src="assets/humanz.jpg" alt=""></div>
-              <div class="content">
-                <h4>2017</h4>
-                <h5>Humanz</h5>
-                <iframe src="https://open.spotify.com/embed/album/0696xC5ne3egtnSXp6T4Yg?theme=0" title="Spotify player: Humanz (2017)" allow="encrypted-media" loading="lazy"></iframe>
-              </div>
-            </div>
-            <div class="card">
-              <div class="pic"><img src="assets/the-now-now.jpg" alt=""></div>
-              <div class="content">
-                <h4>2018</h4>
-                <h5>The Now Now</h5>
-                <iframe src="https://open.spotify.com/embed/album/1amYhlukNF8WdaQC3gKkgL?theme=0" title="Spotify player: The Now Now (2018)" allow="encrypted-media" loading="lazy"></iframe>
-              </div>
-            </div>
-            <div class="card">
-              <div class="pic"><img src="assets/song-machine.jpg" alt=""></div>
-              <div class="content">
-                <h4>2020</h4>
-                <h5>Song Machine</h5>
-                <iframe src="https://open.spotify.com/embed/album/1yCnOPMq0BVzKKn97HiIFp?theme=0" title="Spotify player: Song Machine (2020)" allow="encrypted-media" loading="lazy"></iframe>
-              </div>
-            </div>
-            <div class="card">
-              <div class="pic"><img src="assets/cracker-island.jpg" alt=""></div>
-              <div class="content">
-                <h4>2023</h4>
-                <h5>Cracker Island</h5>
-                <iframe src="https://open.spotify.com/embed/album/4wtZQMNTC1O79kDxMBsEan?theme=0" title="Spotify player: Cracker Island (2023)" allow="encrypted-media" loading="lazy"></iframe>
-              </div>
-            </div>
+        <ul class="track">
+          <li style="--i:0"><label for="a1"><img src="assets/gorillaz.jpg" alt=""></label></li>
+          <li style="--i:1"><label for="a2"><img src="assets/demon-days.jpg" alt=""></label></li>
+          <li style="--i:2"><label for="a3"><img src="assets/plastic-beach.jpg" alt=""></label></li>
+          <li style="--i:3"><label for="a4"><img src="assets/the-fall.jpg" alt=""></label></li>
+          <li style="--i:4"><label for="a5"><img src="assets/humanz.jpg" alt=""></label></li>
+          <li style="--i:5"><label for="a6"><img src="assets/the-now-now.jpg" alt=""></label></li>
+          <li style="--i:6"><label for="a7"><img src="assets/song-machine.jpg" alt=""></label></li>
+          <li style="--i:7"><label for="a8"><img src="assets/cracker-island.jpg" alt=""></label></li>
+        </ul>
+
+        <div class="infos">
+          <div class="info">
+            <div class="info-nav"><label for="a8" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label><p><strong>Gorillaz</strong><span>2001</span></p><label for="a2" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label></div>
+            <iframe class="player" src="https://open.spotify.com/embed/album/0YvYmLBFFwYxgI4U9KKgUm?utm_source=generator&amp;theme=0" title="Spotify player: Gorillaz (2001)" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
           </div>
-        </div>
-
-        <!-- Flechas -->
-        <label class="arrow prev p2" for="s1" aria-hidden="true">&#10094;</label>
-        <label class="arrow prev p3" for="s2" aria-hidden="true">&#10094;</label>
-        <label class="arrow prev p4" for="s3" aria-hidden="true">&#10094;</label>
-        <label class="arrow prev p5" for="s4" aria-hidden="true">&#10094;</label>
-        <label class="arrow prev p6" for="s5" aria-hidden="true">&#10094;</label>
-        <label class="arrow prev p7" for="s6" aria-hidden="true">&#10094;</label>
-        <label class="arrow prev p8" for="s7" aria-hidden="true">&#10094;</label>
-        <label class="arrow next n1" for="s2" aria-hidden="true">&#10095;</label>
-        <label class="arrow next n2" for="s3" aria-hidden="true">&#10095;</label>
-        <label class="arrow next n3" for="s4" aria-hidden="true">&#10095;</label>
-        <label class="arrow next n4" for="s5" aria-hidden="true">&#10095;</label>
-        <label class="arrow next n5" for="s6" aria-hidden="true">&#10095;</label>
-        <label class="arrow next n6" for="s7" aria-hidden="true">&#10095;</label>
-        <label class="arrow next n7" for="s8" aria-hidden="true">&#10095;</label>
-
-        <div class="dots">
-          <label for="s1" aria-label="Gorillaz (2001)"></label>
-          <label for="s2" aria-label="Demon Days (2005)"></label>
-          <label for="s3" aria-label="Plastic Beach (2010)"></label>
-          <label for="s4" aria-label="The Fall (2011)"></label>
-          <label for="s5" aria-label="Humanz (2017)"></label>
-          <label for="s6" aria-label="The Now Now (2018)"></label>
-          <label for="s7" aria-label="Song Machine (2020)"></label>
-          <label for="s8" aria-label="Cracker Island (2023)"></label>
+          <div class="info">
+            <div class="info-nav"><label for="a1" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label><p><strong>Demon Days</strong><span>2005</span></p><label for="a3" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label></div>
+            <iframe class="player" src="https://open.spotify.com/embed/album/0bUTHlWbkSQysoM3VsWldT?utm_source=generator&amp;theme=0" title="Spotify player: Demon Days (2005)" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+          <div class="info">
+            <div class="info-nav"><label for="a2" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label><p><strong>Plastic Beach</strong><span>2010</span></p><label for="a4" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label></div>
+            <iframe class="player" src="https://open.spotify.com/embed/album/2dIGnmEIy1WZIcZCFSj6i8?utm_source=generator&amp;theme=0" title="Spotify player: Plastic Beach (2010)" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+          <div class="info">
+            <div class="info-nav"><label for="a3" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label><p><strong>The Fall</strong><span>2011</span></p><label for="a5" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label></div>
+            <iframe class="player" src="https://open.spotify.com/embed/album/7xHfsH8Ec9Ory9v6nok3mQ?utm_source=generator&amp;theme=0" title="Spotify player: The Fall (2011)" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+          <div class="info">
+            <div class="info-nav"><label for="a4" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label><p><strong>Humanz</strong><span>2017</span></p><label for="a6" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label></div>
+            <iframe class="player" src="https://open.spotify.com/embed/album/0696xC5ne3egtnSXp6T4Yg?utm_source=generator&amp;theme=0" title="Spotify player: Humanz (2017)" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+          <div class="info">
+            <div class="info-nav"><label for="a5" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label><p><strong>The Now Now</strong><span>2018</span></p><label for="a7" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label></div>
+            <iframe class="player" src="https://open.spotify.com/embed/album/1amYhlukNF8WdaQC3gKkgL?utm_source=generator&amp;theme=0" title="Spotify player: The Now Now (2018)" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+          <div class="info">
+            <div class="info-nav"><label for="a6" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label><p><strong>Song Machine</strong><span>2020</span></p><label for="a8" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label></div>
+            <iframe class="player" src="https://open.spotify.com/embed/album/1yCnOPMq0BVzKKn97HiIFp?utm_source=generator&amp;theme=0" title="Spotify player: Song Machine, Season One (2020)" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+          <div class="info">
+            <div class="info-nav"><label for="a7" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label><p><strong>Cracker Island</strong><span>2023</span></p><label for="a1" aria-hidden="true"><img src="assets/icon-arrow.png" alt=""></label></div>
+            <iframe class="player" src="https://open.spotify.com/embed/album/4wtZQMNTC1O79kDxMBsEan?utm_source=generator&amp;theme=0" title="Spotify player: Cracker Island (2023)" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
         </div>
       </div>
     </section>
