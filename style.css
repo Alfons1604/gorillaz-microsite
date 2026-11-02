@@ -86,8 +86,13 @@ header {
   align-items: center;
   gap: 0.5rem 1rem;
   padding: 0.75rem 1.5rem;
-  background: #102026;
-  border-bottom: 1px solid #A6855D;
+  background: transparent;
+  -webkit-backdrop-filter: blur(0);
+  backdrop-filter: blur(0);
+  border-bottom: 1px solid transparent;
+  animation: barra linear both;
+  animation-timeline: scroll(root);
+  animation-range: 70vh calc(70vh + 80px);
 }
 
 .logo img { width: 140px; }
@@ -109,12 +114,24 @@ header nav a {
 
 header nav a:hover { color: #FFF3D6; }
 
+/* Transparente sobre el hero; al bajar de Biography (70vh) se aplica el fondo, el blur y la línea */
+@keyframes barra {
+  to {
+    background: rgba(16, 32, 38, 0.8);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom-color: #A6855D;
+  }
+}
+
 /* ===== Hero ===== */
 .hero {
   position: relative;
   display: flex;
   align-items: center;
-  height: 440px;
+  height: 70vh;
+  min-height: 440px;
+  max-height: 720px;
   padding: 0;
 }
 
@@ -126,6 +143,18 @@ header nav a:hover { color: #FFF3D6; }
   height: 100%;
   object-fit: cover;
   z-index: 0;
+}
+
+/* Degradado oscuro arriba para que se lea el menú sobre la imagen */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(16, 32, 38, 0.8), transparent 35%);
+  z-index: 1;
 }
 
 .hero div {
@@ -225,13 +254,15 @@ header nav a:hover { color: #FFF3D6; }
 
 .info .player { max-width: 480px; }
 
-/* Carrusel */
+/* Carrusel: el radio marcado (:checked) decide qué portada y qué panel se ven.
+   Los radios van antes en el HTML para poder usar el selector ~ */
 .carousel {
   position: relative;
   overflow: hidden;
   padding: 3rem 0 1rem;
 }
 
+/* Radios ocultos, pero se pueden usar con el teclado */
 .carousel input {
   position: absolute;
   top: 0;
@@ -240,12 +271,15 @@ header nav a:hover { color: #FFF3D6; }
   pointer-events: none;
 }
 
+/* Fila de 8 portadas de 260px. left la desplaza para que la 5ª quede centrada */
 .track {
   position: relative;
   left: calc(50% - 130px - 4 * 260px);
   display: flex;
 }
 
+/* --i = posición original (en el HTML), --n = portada activa.
+   mod() reordena para que la activa sea siempre la 5ª y el resto rote: carrusel infinito */
 .track li {
   flex: 0 0 260px;
   order: mod(var(--i) - var(--n, 0) + 12, 8);
@@ -253,6 +287,7 @@ header nav a:hover { color: #FFF3D6; }
   transform: scale(0.7);
 }
 
+/* Cada radio guarda su número en --n */
 #a1:checked ~ .track { --n: 0; }
 #a2:checked ~ .track { --n: 1; }
 #a3:checked ~ .track { --n: 2; }
@@ -276,6 +311,7 @@ header nav a:hover { color: #FFF3D6; }
   border-radius: 4px;
 }
 
+/* Portada activa: grande y con animación */
 #a1:checked ~ .track li:nth-child(1),
 #a2:checked ~ .track li:nth-child(2),
 #a3:checked ~ .track li:nth-child(3),
@@ -289,6 +325,7 @@ header nav a:hover { color: #FFF3D6; }
   animation: zoom 0.4s ease;
 }
 
+/* Animación de entrada de la portada activa */
 @keyframes zoom {
   from {
     opacity: 0.55;
@@ -296,6 +333,7 @@ header nav a:hover { color: #FFF3D6; }
   }
 }
 
+/* Contorno al navegar con el teclado */
 #a1:focus-visible ~ .track li:nth-child(1) img,
 #a2:focus-visible ~ .track li:nth-child(2) img,
 #a3:focus-visible ~ .track li:nth-child(3) img,
@@ -308,6 +346,7 @@ header nav a:hover { color: #FFF3D6; }
   outline-offset: 3px;
 }
 
+/* Paneles ocultos: solo se muestra el del radio marcado */
 .info {
   display: none;
   flex-direction: column;
@@ -367,6 +406,7 @@ header nav a:hover { color: #FFF3D6; }
   height: 48px;
 }
 
+/* La flecha izquierda es la misma imagen volteada */
 .info-nav label:first-child img {
   transform: scaleX(-1);
 }
@@ -535,7 +575,6 @@ footer nav a { text-decoration: none; }
 @media (min-width: 900px) {
   section { padding-top: 4rem; padding-bottom: 4rem; }
   h2 { font-size: 2.5rem; }
-  .hero { height: 600px; }
   .hero h1 { font-size: 4rem; }
 
   #biography {
